@@ -10,7 +10,25 @@
 <body>
     <div id="app">
         {{msg}}
+        <!-- <button-counter></button-counter> -->
+        <!-- <login></login>这里会报错，因为login是app2中的一个私有组件 -->
+        <!-- <blog-post title-name="post.title" fontsize='20'></blog-post> -->
+        <!-- <blog-post v-for="post in posts" :post="post" :key = "post.id" fontsize='20'></blog-post> -->
+        <div >
+            <blog-post 
+            :style="{fontSize:postFont+'em'}"
+                v-for="post in posts" 
+                :post="post" 
+                :key = "post.id" 
+                @enlarge-text="postFont+=0.1">
+            </blog-post>
+        </div>
+        
     </div>
+    <!-- <div id="app2">
+        <button-counter></button-counter>
+        <login></login>
+    </div> -->
 </body>
 <!-- <script src="bundle.js"></script> -->
 </html>
