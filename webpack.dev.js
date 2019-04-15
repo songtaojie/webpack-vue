@@ -1,10 +1,11 @@
 const path = require('path'),
+    dir='component',
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     VueLoaderPlugin = require('vue-loader/lib/plugin');//
 
 module.exports = {
     entry:{
-        index:'./src/main.js'
+        index:`./src/${dir}/main.js`
     },
     output :{
         filename:'bundle.js',
@@ -34,7 +35,7 @@ module.exports = {
     plugins:[
         new HtmlWebpackPlugin({
             filename:'index.html',
-            template:path.join(__dirname,'./src/index.html')
+            template:path.join(__dirname,`./src/${dir}/index.html`)
         }),
         new VueLoaderPlugin()
     ],

@@ -14,16 +14,16 @@
         <!-- <login></login>这里会报错，因为login是app2中的一个私有组件 -->
         <!-- <blog-post title-name="post.title" fontsize='20'></blog-post> -->
         <!-- <blog-post v-for="post in posts" :post="post" :key = "post.id" fontsize='20'></blog-post> -->
-        <div >
+        <!-- <div >
             <blog-post 
             :style="{fontSize:postFont+'em'}"
                 v-for="post in posts" 
                 :post="post" 
                 :key = "post.id" 
-                @enlarge-text="postFont+=0.1">
+                @enlarge-text="doLargeText">
             </blog-post>
-        </div>
-        
+        </div> -->
+        <custom-input v-model='msg' @button-click='camelCase'></custom-input>
     </div>
     <!-- <div id="app2">
         <button-counter></button-counter>
