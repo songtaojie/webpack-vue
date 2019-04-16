@@ -4,6 +4,7 @@
 // Vue，或者直接使用完整的路径进行引用
 // import Vue from "../node_modules/vue/dist/vue.js";
  import Vue from "vue/dist/vue.js";
+import { red } from "_ansi-colors@3.2.4@ansi-colors";
 // import Vue from 'vue'
 // import button from './component/button.vue'
 // console.log('测试');
@@ -121,10 +122,121 @@
 //     methods:{
 //         camelCase(){
 //             alert('驼峰事件名测试');
+//         },
+//         onFocus(){
+//             console.log('文本框获取了焦点');
 //         }
 //     }
 // })
 
 // checkbox
+// Vue.component('custom-checkbox',{
+//     model:{
+//         prop:'checked',
+//         event:'change'
+//     },
+//     props:{
+//         checked:Boolean
+//     },
+//     template:`<input type='checkbox'
+//         :checked='checked'
+//         @change='$emit("change",$event.target.checked)'>
+//     </input>`
+// });
+// var  vm = new Vue({
+//     el:'#app',
+//     data(){
+//         return {
+//             check:true
+//         };
+//     }
+// });
 
+//将原生事件绑定到组件上
+// Vue.component('customInput',{
+//     inheritAttrs:false,
+//     props:['value','label'],
+//     computed:{
+//         inputListeners:function(){
+//             const me = this;
+//             return Object.assign({},
+//                 this.$listeners,{
+//                     focus:function(event){
+//                         me.$emit('focus');
+//                     },
+//                     input:function(event){
+//                         me.$emit('input',event.target.value);
+//                     }
+//                 })
+//         }
+//     },
+//     mounted:function(){
+//         console.log(this.$attrs);
+//     },
+//     template:
+//     `<div>
+//         {{label}}
+//         <input 
+//             v-bind='$attrs'
+//             :value = 'value'
+//             v-on = 'inputListeners'>
+//         </input>
+//     </div>`
+// });
+// var vm = new Vue({
+//     el:'#app',
+//     data(){
+//         return {
+//             msg:'测试'
+//         };
+//     },
+//     methods:{
+//         onFocus(){
+//             console.log('文本框获取了焦点');
+//         }
+//     }
+// })
+
+//.sync修饰符
+Vue.component('child',{
+    props:['title'],
+    data(){
+        return {
+            styleObject:{
+                'background-color':'red',
+                width:'500px',
+                height:'500px'
+            }
+        }
+    },
+    template:`<div :style='styleObject'>
+        {{title}}
+        <input type='button' value='点我隐身' @click='hide'>
+    </div>`,
+    methods:{
+        hide(){
+            this.$emit('update:uphide',false);
+        }
+    },
+    mounted(){
+        this.$emit('update:title',);
+    }
+});
+var vm = new Vue({
+    el:'#app',
+    data(){
+        return {
+            isShow:false
+        }
+    },
+    methods:{
+        show(){
+            this.isShow = true;
+        },
+        hide(value){
+            debugger
+            this.isShow = value;
+        }
+    }
+});
 

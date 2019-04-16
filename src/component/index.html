@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>WebPack-Vue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <style>
+    [v-cloak]{
+        display: none;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
-        {{msg}}
+        <!-- {{msg}} -->
         <!-- <button-counter></button-counter> -->
         <!-- <login></login>这里会报错，因为login是app2中的一个私有组件 -->
         <!-- <blog-post title-name="post.title" fontsize='20'></blog-post> -->
@@ -23,7 +27,19 @@
                 @enlarge-text="doLargeText">
             </blog-post>
         </div> -->
-        <custom-input v-model='msg' @button-click='camelCase'></custom-input>
+        <!-- <custom-input v-model='msg' @button-click='camelCase'></custom-input> -->
+        <!-- <custom-checkbox v-model='check'></custom-checkbox>
+        <p v-cloak>{{check}}</p> -->
+
+         <!-- <custom-input v-model='msg' name='userName' label = '姓名：' v-on:focus = 'onFocus'></custom-input>
+         <p v-cloak>{{msg}}</p> -->
+
+         <!-- .sync修饰符 -->
+         <button @click='show'>我是父组件</button>
+         <!-- <child @uphide='hide' v-show='isShow'></child> -->
+         <!-- <child @uphide='v=>isShow = v' v-show='isShow'></child> -->
+         <!-- <child @update:uphide='v=>isShow = v' v-show='isShow'></child> -->
+         <child :uphide.sync='isShow' v-show='isShow'></child>
     </div>
     <!-- <div id="app2">
         <button-counter></button-counter>
