@@ -47,32 +47,74 @@
 //         }
 //     }
 // });
-Vue.component('navigation-link',{
+// Vue.component('navigation-link',{
+//     props:{
+//         url:String,
+//         'new-page':Boolean
+//     },
+//     template:`<div>
+//         {{newPage}}
+//         <a :href='url'>
+//         <slot>提交按钮</slot>
+//         </a>
+//     </div>`,
+    
+// });
+// var vm = new Vue({
+//     el:'#app',
+//     data(){
+//         return {
+//             isShow:false
+//         }
+//     },
+//     methods:{
+//         show(){
+//             this.isShow = true;
+//         },
+//         hide(value){
+//             this.isShow = value;
+//         }
+//     }
+// });
+
+// 具名插槽
+// Vue.component('base-layout',{
+//     template:`<div class='container'>
+//         <header>
+//             <slot name='header'></slot>
+//         </header>
+//         <main>
+//             <slot></slot>
+//         </main>
+//         <footer>
+//             <slot name='footer'></slot>
+//         </footer>
+//     </div>`
+// });
+
+//作用域插槽
+Vue.component('my-list',{
     props:{
-        url:String,
-        newPage:Boolean
+        books:{
+            type:Array,
+            default:function(){
+                return [];
+            }
+        }
     },
-    template:`<div>
-        <a :href='url'>
-        <slot></slot>
-        </a>
-    </div>`
+    template:`<ul>
+        <slot  v-for='book in books' :bookObj = 'book'></slot>
+    </ul>`
 });
 var vm = new Vue({
     el:'#app',
     data(){
         return {
-            isShow:false
-        }
-    },
-    methods:{
-        show(){
-            this.isShow = true;
-        },
-        hide(value){
-            debugger
-            this.isShow = value;
+            books:[
+                {id:0,name:'《Vue Js实战》'},
+                {id:1,name:'《JavaScript高级程序设计》'},
+                {id:2,name:'《深入浅出WebPack》'}
+            ]
         }
     }
 });
-

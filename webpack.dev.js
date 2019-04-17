@@ -1,5 +1,5 @@
 const path = require('path'),
-    dir='component/slot',
+    dir='component/dynamic',
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     VueLoaderPlugin = require('vue-loader/lib/plugin');//
 

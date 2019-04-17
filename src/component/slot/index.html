@@ -14,7 +14,47 @@
 <body>
     <div id="app">
        <!-- <alert-box type='success' success ='true'>文件上传成功!</alert-box> -->
-       <navigation-link url='https://www.baidu.com/' newPage='true'>Go百度</navigation-link>
+       <!-- <navigation-link url='https://www.baidu.com/' :new-page='false' >Go百度</navigation-link> -->
+
+       <!-- 具名插槽 -->
+       <!-- <base-layout>
+            <template v-slot:header>
+                <h1>这是头部内容2</h1>
+            </template>
+            <template v-slot:footer>
+                <h1>这是胃部内容</h1>
+            </template>
+            <p>主内容</p>
+            <template v-slot:header>
+                <h1>这是头部内容</h1>
+            </template>
+        </base-layout> -->
+        <!-- <base-layout>
+        <template slot='footer'>
+            <h1>这是胃部内容</h1>
+        </template>
+        
+        <template slot='header'>
+            <p>主内容</p>
+        </template>
+        <p>主内容2</p>
+        <template slot='header'>
+            <h1>这是头部内容</h1>
+        </template> -->
+    <!-- </base-layout> -->
+
+    <!-- 作用域插槽 -->
+        <!-- <my-list :books='books'>
+            <template v-slot='props' >
+                <li>{{props.bookObj}}</li>
+            </template>
+        </my-list> -->
+        <!-- 解构插槽 -->
+        <my-list :books='books'>
+            <template v-slot='{bookObj:book={id:"4",name:"测试"}}' >
+                <li>{{book}}</li>
+            </template>
+        </my-list>
     </div>
     <!-- <div id="app2">
         <button-counter></button-counter>
