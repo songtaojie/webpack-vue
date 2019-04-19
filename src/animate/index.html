@@ -15,7 +15,6 @@
         height: 20px;
         border-radius: 50%;
         background-color: #F44336;
-        transform: translate(0,0)
     }
     /* .hxblog-enter,
     .hxblog-leave-to{
@@ -38,11 +37,23 @@
             transform: rotate(90deg)
         }
     } */
+    .list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s ease-in;
+}
+.list-enter, .list-leave-to
+/* .list-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
     </style>
 </head>
 <body>
     <div id="app">
-        <button @click='show=!show'>加入购物车</button>
+        <!-- <button @click='show=!show'>加入购物车</button> -->
         <!-- <transition name='hxblog'>
             <p v-if='show' v-cloak>这是一个动画文本</p>
         </transition> -->
@@ -53,13 +64,43 @@
         >
             <p v-if='show' v-cloak>这是一个动画文本</p>
         </transition> -->
-        <transition
-            :before-enter='beforeEnter',
-            :enter='enter',
-            :after-enter='afterEnter'
+        <!-- <transition
+            @before-enter='beforeEnter',
+            @enter='enter',
+            @after-enter='afterEnter'
+            
         >
-            <div class="animate-cicle"></div>
-        </transition>
+            <div class="animate-cicle"  v-if='show'></div>
+        </transition> -->
+
+        <!-- <input type="radio" name="view" value="v-a" v-model='view' checked>A
+        <input type="radio" name="view" value="v-b" v-model='view'>B
+        <transition name='component-fade' mode='out-in'>
+            <component :is="view"></component>
+        </transition> -->
+        id:<input type="text" name="id" v-model='id'>name:<input type="text" name="id" v-model='name'>
+        <button type="button" @click='add' class="btn btn-primary">添加</button>
+        <table class="table table-sm table-bordered table-hover " style="width:500px;">
+            <thead class="thead-light">
+                <tr>
+                    <th>主键</th>
+                    <th>名称</th>
+                </tr>
+            </thead>
+           <tbody>
+               <transition-group name='list'>
+                    <tr v-for='item in dataList' :key="item.id" class="list-item">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                    </tr>
+               </transition-group>
+           </tbody>
+        </table>
+        <!-- <transition-group name='list'>
+            <li >
+
+            </li>
+        </transition-group> -->
     </div>
 </body>
 </html>

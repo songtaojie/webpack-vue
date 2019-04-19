@@ -27,11 +27,12 @@ module.exports = {
             use:['style-loader','css-loader','sass-loader']
         }]
     },
-    // resolve:{
-    //     alias:{//修改Vue被导入时候的包路径
-    //         "vue$":'vue/dist/vue.js'
-    //     }
-    // },
+    resolve:{
+        alias:{//修改Vue被导入时候的包路径
+            "vue$":'vue/dist/vue.js',
+            'bootstrap':'bootstrap/dist/css/bootstrap.css'
+        }
+    },
     plugins:[
         new HtmlWebpackPlugin({
             filename:'index.html',
