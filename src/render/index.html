@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>WebPack-Vue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="../../node_modules/animate.css/animate.css"> -->
     <style>
     [v-cloak]{
         display: none;
@@ -13,7 +14,9 @@
 </head>
 <body>
     <div id="app">
-        <hello></hello>
+        <!-- <input type='text' v-focus /> -->
+        <heading :level="2"  :value='msg' @input='inputFunc'>这是一个渲染函数和模板sss-aa</heading>
+        <p>{{msg}}</p>
     </div>
 </body>
 </html>

@@ -37,17 +37,13 @@
             transform: rotate(90deg)
         }
     } */
-    .list-item {
-  display: inline-block;
-  margin-right: 10px;
-}
 .list-enter-active, .list-leave-active {
-  transition: all 1s ease-in;
+  transition: all 0.6s ease;
 }
 .list-enter, .list-leave-to
 /* .list-leave-active for below version 2.1.8 */ {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(80px);
 }
     </style>
 </head>
@@ -87,18 +83,16 @@
                     <th>名称</th>
                 </tr>
             </thead>
-           <tbody>
-               <transition-group name='list'>
-                    <tr v-for='item in dataList' :key="item.id" class="list-item">
-                        <td>{{item.id}}</td>
-                        <td>{{item.name}}</td>
-                    </tr>
-               </transition-group>
+           <tbody name='list' is='transition-group' tag='tbody'>
+                <tr v-for='item in dataList' :key="item.id" >
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                </tr>
            </tbody>
         </table>
         <!-- <transition-group name='list'>
-            <li >
-
+            <li v-for='item in dataList' :key='item.id'>
+                {{item.id}}----{{item.name}}
             </li>
         </transition-group> -->
     </div>

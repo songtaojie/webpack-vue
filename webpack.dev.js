@@ -1,5 +1,5 @@
 const path = require('path'),
-    dir='animate',
+    dir='component',
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     VueLoaderPlugin = require('vue-loader/lib/plugin');//
 
@@ -29,7 +29,7 @@ module.exports = {
     },
     resolve:{
         alias:{//修改Vue被导入时候的包路径
-            "vue$":'vue/dist/vue.js',
+            // "vue$":'vue/dist/vue.js',
             'bootstrap':'bootstrap/dist/css/bootstrap.css'
         }
     },

@@ -3,13 +3,23 @@
 // 这个不是完整的Vue，有些东西不能像通过js引入的方式那样使用，可以再webpack配置文件中配置resolve来设置引入完整的
 // Vue，或者直接使用完整的路径进行引用
 // import Vue from "../node_modules/vue/dist/vue.js";
-// import Vue from "vue/dist/vue.js";
-import Vue from 'vue'
-import App from './App.vue'
+//  import Vue from "vue/dist/vue.js";
+import Vue from "vue";
+
+//列表过度
 var vm = new Vue({
     el:'#app',
-    render:h=>h(App)
-})
-
-
+    data(){
+        return {
+            msg:'hello world'
+        }
+    },
+    filters:{
+        capitalize:function(value){
+            if(!value)return'';
+            value = value.toString();
+            return value.charAt(0).toUpperCase()+value.slice(1);
+        }
+    }
+});
 
