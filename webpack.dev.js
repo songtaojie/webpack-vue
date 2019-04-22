@@ -5,7 +5,7 @@ const path = require('path'),
 
 module.exports = {
     entry:{
-        index:`./src/${dir}/main.js`
+        index:'./src/main.js'
     },
     output :{
         filename:'bundle.js',
@@ -25,10 +25,14 @@ module.exports = {
         },{
             test:/\.scss$/,
             use:['style-loader','css-loader','sass-loader']
+        // },{
+        //     test:/\.js$/,
+        //     exclude:/node_modules/,
+        //     use:['babel-loader']
         }]
     },
     resolve:{
-        alias:{//修改Vue被导入时候的包路径
+        alias:{//修改Vue被导入时候的包路径F:\C_Project\JavaScript\Vue\src\index.html
             // "vue$":'vue/dist/vue.js',
             'bootstrap':'bootstrap/dist/css/bootstrap.css'
         }
@@ -36,7 +40,7 @@ module.exports = {
     plugins:[
         new HtmlWebpackPlugin({
             filename:'index.html',
-            template:path.join(__dirname,`./src/${dir}/index.html`)
+            template:path.join(__dirname,'./src/index.html')
         }),
         new VueLoaderPlugin()
     ],
