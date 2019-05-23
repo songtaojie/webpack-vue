@@ -1,21 +1,15 @@
 <template>
     <div class="container">
-        <ul>
-            <li>
-                <v-link href="/">首页</v-link>
-                <v-link href="/about">关于</v-link>
-            </li>
-        </ul>
-        <slot></slot>
+        <header>
+            <router-link to='/home' tag="span">Home</router-link>
+            <router-link to='/about'>About</router-link>
+        </header>
+        <router-view></router-view>
     </div>
 </template>
 <script>
-import Vlink from '../components/VLink.vue'
 export default {
     name:'Main',
-    components:{
-        'v-link':Vlink
-    }
 }
 </script>
 <style scoped>

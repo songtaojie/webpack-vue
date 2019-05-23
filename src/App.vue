@@ -1,34 +1,14 @@
 <template>
     <div id='app'>
-        <home></home>
+        <main-layout></main-layout>
     </div>
 </template>
 <script>
-import routes from './routes/routes.js'
+import MainLayout from './layouts/Main.vue'
 export default {
-    name:'app',
-    data(){
-         const matchingView = routes[this.currentRoute];
-        
-        return {
-            currentRoute:window.location.pathname,
-            ViewComponent: matchingView
-            ? require('./pages/' + matchingView + '.vue')
-            : require('./pages/404.vue')
-        }
-    },
     components:{
-        'home':this.ViewComponent
-    },
-    // computed:{
-    //     ViewComponent(){
-            
-    //     return 
-    //     }
-    // }
+        MainLayout
+    }
 }
-// window.addEventListener('popstate', () => {
-//   app.currentRoute = window.location.pathname
-// })
 </script>
 

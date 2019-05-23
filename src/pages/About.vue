@@ -1,14 +1,10 @@
 <template>
-    <main-layout>
-        <p>公司信息页面</p>
-    </main-layout>
+<div>
+<p>公司信息页面</p>
+</div>
 </template>
 <script>
-import MainLayout from '../layouts/Main.vue'
 export default {
-    components:{
-        MainLayout
-    }
 }
 </script>
 

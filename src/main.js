@@ -5,27 +5,13 @@
 // import Vue from "../node_modules/vue/dist/vue.js";
 // import Vue from "vue/dist/vue.js";
 import Vue from 'vue'
-import routes from './routes/routes.js'
+import App from './App.vue'
+import router from './routes/routes.js'
+debugger
 var vm = new Vue({
     el:'#app',
-    data(){
-        return {
-            currentRoute:window.location.pathname
-        }
-    },
-    computed:{
-        ViewComponent(){
-            const view = routes[this.currentRoute];
-            return view? ()=>import('./pages/'+view+'.vue'):()=>import('./pages/404.vue')
-        }
-    },
+    router,
     render:function(h){
-        debugger
-        return h(this.ViewComponent)
+        return h(App)
     }
 })
-window.addEventListener('popstate', () => {
-debugger
-    vm.currentRoute = window.location.pathname
-},false)
-
