@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WebPack-Vue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    [v-cloak]{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+         <!-- .sync修饰符 -->
+         <button @click='show'>我是父组件</button>
+         <!-- <child @uphide='hide' v-show='isShow'></child> -->
+         <!-- <child @uphide='v=>isShow = v' v-show='isShow'></child> -->
+         <!-- <child @update:uphide='v=>isShow = v' v-show='isShow'></child> -->
+         <child :uphide.sync='isShow' v-show='isShow'></child>
+    </div>
+    <!-- <div id="app2">
+        <button-counter></button-counter>
+        <login></login>
+    </div> -->
+</body>
+<!-- <script src="bundle.js"></script> -->
+</html>
