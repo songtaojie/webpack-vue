@@ -1,10 +1,13 @@
 <template>
     <div class="container">
         <header>
-            <router-link to='/home' tag="span">Home</router-link>
+            <router-link :to='{name:"home",params:{id:111}}'>Home</router-link>
             <router-link to='/about'>About</router-link>
         </header>
-        <router-view></router-view>
+        <div>
+            <router-view></router-view>
+            <router-view name="profile"></router-view>
+        </div>
     </div>
 </template>
 <script>

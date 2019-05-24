@@ -5,20 +5,22 @@ import about from '../pages/About.vue'
 import notfound from '../pages/404.vue'
 Vue.use(VueRouter);
 const routes = [{
-    path:'/home',
-    component:home,
-    children:[{
-        path:'profile',
-        component:()=>import('../pages/Profile.vue')
-    }]
+    name:'home',
+    path:'/home/:id?',
+    props:{default:true,profile:true},
+    components:{
+        default:home,
+        profile:()=>import('../pages/Profile.vue')
+    }
 },{
     path:'/about',
-    component:about
+    component:about,
 },{
     path:'*',
     component:notfound
 }]
 var router = new VueRouter({
+    mode:'history',
     routes
 });
 export default router
