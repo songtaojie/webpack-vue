@@ -7,9 +7,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './routes/routes.js'
+import store from "./store/store.js";
 var vm = new Vue({
     el:'#app',
     router,
+    store,
     render:function(h){
         return h(App)
     }
