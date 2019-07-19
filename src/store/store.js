@@ -6,6 +6,7 @@ const state = {
 }
 const mutations = {
     increment(state,n){
+        debugger
         if(!n)n = 1;
         state.count+=n;
     },

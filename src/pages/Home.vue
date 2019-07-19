@@ -24,7 +24,7 @@ export default {
     },
     methods: {
         ...mapActions([
-            'increment',
+            // 'increment',
             'decrement',
             'incrementIfOdd',
             // 'incrementAsync'
@@ -32,6 +32,9 @@ export default {
         ...mapMutations({
             dec:'decrement'
         }),
+        increment(){
+            this.$store.commit('increment',2)
+        },
         incrementAsync(){
             this.$store.dispatch('incrementAsync',2)
             .then((result) => {
