@@ -1,12 +1,11 @@
 <template>
     <div class="container">
         <header>
-            <router-link :to='{name:"home",params:{id:111}}'>Home</router-link>
+            <router-link to='/'>Home</router-link>
             <router-link to='/about'>About</router-link>
         </header>
         <div>
             <router-view></router-view>
-            <router-view name="profile"></router-view>
         </div>
     </div>
 </template>

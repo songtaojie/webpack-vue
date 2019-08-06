@@ -1,23 +1,33 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import home from '../pages/Home.vue'
-import about from '../pages/About.vue'
-import notfound from '../pages/404.vue'
 Vue.use(VueRouter);
+// const routes = [{
+//     name:'home',
+//     path:'/home/:id?',
+//     props:{default:true,profile:true},
+//     components:{
+//         default:home,
+//         profile:()=>import('../pages/Profile.vue')
+//     }
+// },{
+//     path:'/about',
+//     component:()=>import('../pages/About.vue'),
+// },{
+//     path:'*',
+//     component:()=>import('../pages/404.vue')
+// }]
 const routes = [{
-    name:'home',
-    path:'/home/:id?',
-    props:{default:true,profile:true},
-    components:{
-        default:home,
-        profile:()=>import('../pages/Profile.vue')
-    }
+    path: '/',
+    component: ()=>import('../pages/Home.vue'),
 },{
     path:'/about',
-    component:about,
+    component:()=>import('../pages/About.vue'),
+},{
+    path:'/error',
+    component:()=>import('../pages/404.vue')
 },{
     path:'*',
-    component:notfound
+    redirect: '/error'
 }]
 var router = new VueRouter({
     mode:'history',

@@ -9,11 +9,13 @@ module.exports = {
     },
     output :{
         filename:'bundle.js',
-        path:path.join(__dirname,'dist')
+        path:path.join(__dirname,'dist'),
+        // publicPath:'/'
     },
     devServer:{
         contentBase:path.join(__dirname,'src'),
         hot:true,
+        historyApiFallback:true//或者historyApiFallback:'/index.html'
     },
     module:{
         rules:[{
